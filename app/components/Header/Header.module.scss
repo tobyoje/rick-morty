@@ -40,6 +40,9 @@
 
       li {
         margin: 0 1rem;
+        @include media-desktop {
+          margin: 0 3rem;
+        }
       }
     }
   }

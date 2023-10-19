@@ -1,0 +1,70 @@
+.character-card {
+  background-color: var(--dark);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  margin: 1rem;
+}
+
+.character {
+  &__image-container {
+    position: relative;
+  }
+
+  &__image {
+    border-radius: 1.5rem;
+    height: 25rem;
+    object-fit: contain;
+  }
+
+  &__status {
+    background-color: red;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    &--alive {
+      background-color: green;
+    }
+
+    &--dead {
+      background-color: red;
+    }
+
+    &--unknown {
+      background-color: grey;
+    }
+  }
+
+  &__details {
+    padding: 1.2rem 0;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  &__gender {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+&__location{
+    font-size: 1.4rem;
+
+    &--title{
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-bottom: 0.2rem;
+        color: var(--secondary-text);
+
+
+    }
+
+}
+
+}
