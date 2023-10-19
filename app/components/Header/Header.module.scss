@@ -1,0 +1,56 @@
+@use "../../styles/partials/responsive" as *;
+
+.header-container {
+  background: var(--dark);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  @include media-tablet {
+    padding: 3rem;
+  }
+
+  @include media-desktop {
+    padding: 3rem 10rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8rem;
+
+  &__logo {
+    width: 3rem;
+    @include media-tablet {
+      width: 7rem;
+    }
+  }
+  &__nav {
+    ul {
+      display: flex;
+      font-size: 1.2rem;
+      list-style: none;
+
+      @include media-tablet {
+        font-size: 2rem;
+      }
+
+      li {
+        margin: 0 1rem;
+      }
+    }
+  }
+  &__title {
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 6rem;
+
+    @include media-tablet {
+      font-size: 8rem;
+      padding-bottom: 10rem;
+    }
+  }
+}
