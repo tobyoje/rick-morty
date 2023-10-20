@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import styles from "./CharacterList.module.scss";
 import CharacterCard from "../CharcterCard/CharacterCard";
+import Pagination from "../Pagination/Pagination";
+import { useSearchParams } from "next/navigation";
 
 interface singleCharacter {
   id: number;
@@ -16,8 +18,11 @@ interface singleCharacter {
 }
 
 const CharactersList = () => {
+  const searchParams = useSearchParams();
+  const page = searchParams.get("page");
   const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(Number(page) || 1);
+  const [info, setInfo] = useState(null);
 
   const getCharacters = `
   query {
@@ -57,6 +62,7 @@ const CharactersList = () => {
 
       const result = await response.json();
       setData(result.data.characters.results);
+      setInfo(result.data.characters.info);
     } catch (error) {
       console.error("Error", error);
     }
@@ -66,20 +72,25 @@ const CharactersList = () => {
     fetchData();
   }, [currentPage]);
 
-  if (!data) {
+  if (!data || !info) {
     return <p>Loading...</p>;
   }
 
-  console.log(data);
-
   return (
-    <section className={styles.characters}>
-      {data.map((character: singleCharacter) => (
-        <div key={character.id}>
-          <CharacterCard character={character} />
-        </div>
-      ))}
-    </section>
+    <>
+      <section className={styles.characters}>
+        {data.map((character: singleCharacter) => (
+          <div key={character.id}>
+            <CharacterCard character={character} />
+          </div>
+        ))}
+      </section>
+      <Pagination
+        info={info}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+    </>
   );
 };
 
