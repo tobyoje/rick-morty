@@ -1,42 +1,106 @@
+@use "../../styles/partials/responsive" as *;
+
 .character {
   display: flex;
   justify-content: center;
   background-color: var(--black);
-  padding: 10rem 0;
+  padding-top: 5rem;
+
+  @include media-tablet {
+    padding: 10rem 0;
+  }
 
   &__paginate {
     margin-top: 10rem;
     font-size: 2rem;
-    width: 20%;
+    display: none;
+
+    @include media-tablet {
+      display: flex;
+      justify-content: center;
+      width: 15%;
+    }
+
+    @include media-desktop {
+      width: 20%;
+    }
+  }
+
+  &__paginate-button {
     display: flex;
+    align-items: center;
     justify-content: center;
+    background-color: white;
+    height: 5rem;
+    border: 0;
+
+    @include media-tablet {
+      width: 5rem;
+    }
+
+    @include media-desktop {
+      width: 10rem;
+    }
+
+    &--left {
+      border-radius: 3rem 0rem 0rem 3rem;
+    }
+
+    &--right {
+      border-radius: 0rem 3rem 3rem 0rem;
+    }
   }
 
   &__middle {
     display: flex;
     flex-direction: column;
-    width: 60%;
+
+    @include media-tablet {
+      width: 70%;
+    }
+    @include media-desktop {
+      width: 60%;
+    }
   }
 
   &__top {
     display: flex;
+    flex-direction: column;
     position: relative;
-    background-color: var(--dark);
     padding: 2rem;
     border-radius: 2rem;
+    align-items: center;
+
+    @include media-tablet {
+      background-color: var(--dark);
+      flex-direction: row;
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 4rem;
+    margin-top: 2rem;
+    align-items: center;
+
+    @include media-tablet {
+      padding-left: 4rem;
+      margin-top: 0;
+      align-items: flex-start;
+    }
   }
 
   &__image {
-    border-radius: 1.5rem;
-    height: 25rem;
     object-fit: contain;
+    border-radius: 2rem;
+    width: 20rem;
+
+    @include media-tablet {
+      width: 25rem;
+      border-radius: 2rem;
+      height: 25rem;
+    }
   }
 
   &__name {
@@ -56,9 +120,16 @@
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     border-radius: 1rem;
-    position: absolute;
     top: 1.5rem;
     right: 1.5rem;
+    margin-top: 0.5rem;
+
+    @include media-tablet {
+      margin-top: 0;
+
+      position: absolute;
+    }
+
     &--alive {
       background-color: green;
     }
@@ -79,13 +150,31 @@
     position: relative;
     background-color: var(--dark);
     padding: 2rem;
-    border-radius: 2rem;
+
+    @include media-tablet {
+      border-radius: 2rem;
+    }
   }
 
   &__location {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin: 5rem 0;
+    padding: 0 1rem;
+
+    @include media-tablet {
+      flex-direction: row;
+    }
+
+    &--row {
+      margin-bottom: 2rem;
+
+      @include media-tablet {
+        width: 35%;
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__episode-container {
@@ -99,10 +188,27 @@
     justify-content: center;
     background-color: var(--black);
     height: 14rem;
-    width: 16rem;
+    width: 26rem;
     margin: 1rem;
     padding: 2rem;
     border-radius: 1rem;
+
+    @include media-tablet {
+      height: 14rem;
+      width: 22rem;
+    }
+
+    @include media-desktop {
+      width: 20rem;
+    }
+
+    &--title {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #b3b3b3;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
   }
 
   &__episodename {
@@ -118,11 +224,12 @@
 
   &__type {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: white;
     color: black;
     padding: 0.5rem 1.5rem;
     border-radius: 1rem;
     margin-top: 0.7rem;
+    max-width: 30rem;
   }
 }
