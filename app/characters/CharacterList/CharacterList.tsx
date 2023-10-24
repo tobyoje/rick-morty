@@ -4,6 +4,7 @@ import styles from "./CharacterList.module.scss";
 import CharacterCard from "../CharcterCard/CharacterCard";
 import Pagination from "../Pagination/Pagination";
 import { useSearchParams } from "next/navigation";
+import Search from "../Search/Search";
 
 interface singleCharacter {
   id: number;
@@ -23,10 +24,11 @@ const CharactersList = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(Number(page) || 1);
   const [info, setInfo] = useState(null);
+  const [nameFilter, setNameFilter] = useState("");
 
   const getCharacters = `
   query {
-    characters (page: ${currentPage}) {
+    characters (page: ${currentPage}, filter: { name: "${nameFilter}" }) {
       info {
         count
         pages
@@ -70,7 +72,7 @@ const CharactersList = () => {
 
   useEffect(() => {
     fetchData();
-  }, [currentPage]);
+  }, [currentPage, nameFilter]);
 
   if (!data || !info) {
     return <p>Loading...</p>;
@@ -78,6 +80,11 @@ const CharactersList = () => {
 
   return (
     <>
+      <Search
+        setCurrentPage={setCurrentPage}
+        nameFilter={nameFilter}
+        setNameFilter={setNameFilter}
+      />
       <section className={styles.characters}>
         {data.map((character: singleCharacter) => (
           <div key={character.id}>

@@ -1,0 +1,23 @@
+.searchform {
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 45rem;
+    height: 5.5rem;
+    border-radius: 2rem;
+    border: 0;
+    margin-bottom: -2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    &::placeholder {
+      color: grey;
+      font-size: 1.8rem;
+      letter-spacing: 0.1rem;
+    }
+    &:focus{
+        outline: 0;
+    }
+  }
+}

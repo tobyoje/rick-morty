@@ -11,7 +11,7 @@ interface information {
 
 interface Props {
   currentPage: number;
-  setCurrentPage: any;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   info: information | null;
 }
 
