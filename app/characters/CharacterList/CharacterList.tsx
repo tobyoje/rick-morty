@@ -5,6 +5,7 @@ import CharacterCard from "../CharcterCard/CharacterCard";
 import Pagination from "../Pagination/Pagination";
 import { useSearchParams } from "next/navigation";
 import Search from "../Search/Search";
+import Filter from "../Filter/Filter";
 
 interface singleCharacter {
   id: number;
@@ -25,10 +26,15 @@ const CharactersList = () => {
   const [currentPage, setCurrentPage] = useState(Number(page) || 1);
   const [info, setInfo] = useState(null);
   const [nameFilter, setNameFilter] = useState("");
+  const [filter, setFilter] = useState({
+    status: "",
+    gender: "",
+    species: "",
+  });
 
   const getCharacters = `
   query {
-    characters (page: ${currentPage}, filter: { name: "${nameFilter}" }) {
+    characters (page: ${currentPage}, filter: { name: "${nameFilter}", status: "${filter.status}", gender: "${filter.gender}", species: "${filter.species}" }) {
       info {
         count
         pages
@@ -72,7 +78,7 @@ const CharactersList = () => {
 
   useEffect(() => {
     fetchData();
-  }, [currentPage, nameFilter]);
+  }, [currentPage, nameFilter, filter]);
 
   if (!data || !info) {
     return <p>Loading...</p>;
@@ -85,12 +91,20 @@ const CharactersList = () => {
         nameFilter={nameFilter}
         setNameFilter={setNameFilter}
       />
+
       <section className={styles.characters}>
-        {data.map((character: singleCharacter) => (
-          <div key={character.id}>
-            <CharacterCard character={character} />
-          </div>
-        ))}
+        <Filter
+          setCurrentPage={setCurrentPage}
+          filter={filter}
+          setFilter={setFilter}
+        />
+        <div className={styles.characters__container}>
+          {data.map((character: singleCharacter) => (
+            <div key={character.id}>
+              <CharacterCard character={character} />
+            </div>
+          ))}
+        </div>
       </section>
       <Pagination
         info={info}

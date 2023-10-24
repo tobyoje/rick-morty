@@ -3,8 +3,8 @@ import React, { SetStateAction, useState } from "react";
 
 interface Props {
   nameFilter: string;
-  setNameFilter: React.Dispatch<SetStateAction<string>>;
-  setCurrentPage: React.Dispatch<SetStateAction<number>>;
+  setNameFilter: React.Dispatch<React.SetStateAction<string>>;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Search = ({ nameFilter, setNameFilter, setCurrentPage }: Props) => {
