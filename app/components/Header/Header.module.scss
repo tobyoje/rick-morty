@@ -49,11 +49,11 @@
   &__title {
     font-size: 3rem;
     text-align: center;
-    padding-bottom: 6rem;
+    padding-bottom: 3rem;
 
     @include media-tablet {
       font-size: 8rem;
-      padding-bottom: 10rem;
+      padding-bottom: 5rem;
     }
   }
 }

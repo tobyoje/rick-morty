@@ -33,6 +33,7 @@
     background-color: white;
     height: 5rem;
     border: 0;
+    cursor: pointer;
 
     @include media-tablet {
       width: 5rem;
