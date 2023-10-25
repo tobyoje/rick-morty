@@ -1,0 +1,88 @@
+@use "../styles/partials/responsive" as *;
+
+.characters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--black);
+
+  @include media-tablet {
+    padding: 2rem 3rem;
+  }
+
+  @include media-desktop {
+    padding: 0 7rem 7rem 7rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 500;
+
+    @include media-tablet {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__sub {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgb(241, 231, 231);
+
+    @include media-tablet {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__airdate {
+    font-size: 1.4rem;
+    font-weight: 300;
+
+    @include media-tablet {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    width: 100%;
+
+    @include media-desktop {
+      padding-top: 4rem;
+      flex-direction: row;
+    }
+  }
+
+  &__filter {
+    @include media-desktop {
+      width: 20%;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include media-desktop {
+      width: 80%;
+    }
+  }
+
+  &__top-left {
+    width: 20%;
+  }
+
+  &__top-right {
+    padding: 2rem;
+    background-color: var(--dark);
+    border-radius: 2rem;
+
+    @include media-desktop {
+      padding: 4rem;
+      margin-left: 1rem;
+    }
+  }
+}

@@ -4,21 +4,24 @@ import { useEffect, useState } from "react";
 import StartLoader from "./components/StartLoader/StartLoader";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
+import CharactersList from "./characters/CharacterList/CharacterList";
 
 export default function Home() {
-  const router = useRouter();
+  const [main, setMain] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push("/characters");
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, [router]);
+  setTimeout(() => {
+    setMain(true);
+  }, 2500);
 
   return (
-    <main className={styles.main}>
-      <StartLoader />
-    </main>
+    <>
+      {!main ? (
+        <main className={styles.main}>
+          <StartLoader />
+        </main>
+      ) : (
+        <CharactersList />
+      )}
+    </>
   );
 }

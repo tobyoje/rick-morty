@@ -15,13 +15,15 @@ const Header = () => {
         </Link>
         <nav className={headerStyles.header__nav}>
           <ul>
-            <li>Characters</li>
-            <li>Episodes</li>
-            <li>Location</li>
+            <li>
+              <Link href="/characters"> Characters</Link>
+            </li>
+            <li>
+              <Link href="/episodes"> Episodes</Link>
+            </li>
           </ul>
         </nav>
       </div>
-      <h1 className={headerStyles.header__title}>Rick and Morty</h1>
     </header>
   );
 };

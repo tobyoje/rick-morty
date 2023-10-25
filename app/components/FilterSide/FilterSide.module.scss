@@ -1,0 +1,80 @@
+@use "../../styles/partials//responsive" as *;
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include media-tablet {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: center;
+    }
+  }
+
+  &__option {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.7rem;
+
+    @include media-desktop {
+      margin: 0 1.5rem;
+    }
+
+    label {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05rem;
+    }
+
+    select {
+      width: 25rem;
+      height: 4rem;
+      border: 1px solid white;
+      background-color: var(--black);
+      color: white;
+      border-radius: 0.5rem;
+      padding: 0 1.5rem;
+      font-family: poppins;
+      appearance: none;
+      background-image: url("/arrow-down.svg");
+      background-size: 2.4rem;
+      background-repeat: no-repeat;
+      background-position: calc(100% - 8px) center;
+
+      @include media-tablet {
+        width: 12rem;
+        height: 4rem;
+      }
+
+      @include media-desktop {
+        width: 20rem;
+        height: 4rem;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      width: 20rem;
+      height: 4rem;
+      border-radius: 1rem;
+      border: 0;
+      font-family: poppins;
+      font-size: 1.4rem;
+      letter-spacing: 0.05rem;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+}

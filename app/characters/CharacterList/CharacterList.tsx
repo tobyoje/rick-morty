@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import styles from "./CharacterList.module.scss";
-import CharacterCard from "../CharcterCard/CharacterCard";
+import CharacterCard from "../../components/CharcterCard/CharacterCard";
 import Pagination from "../Pagination/Pagination";
 import { useSearchParams } from "next/navigation";
 import Search from "../Search/Search";
