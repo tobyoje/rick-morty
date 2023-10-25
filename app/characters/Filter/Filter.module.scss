@@ -50,7 +50,6 @@
       background-repeat: no-repeat;
       background-position: calc(100% - 8px) center;
 
-
       @include media-tablet {
         width: 12rem;
         height: 4rem;
@@ -76,6 +75,7 @@
       letter-spacing: 0.05rem;
       text-transform: uppercase;
       cursor: pointer;
+      color: black;
     }
   }
 }

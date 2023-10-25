@@ -19,8 +19,12 @@
 
   &__image {
     border-radius: 1.5rem;
-    height: 25rem;
+    height: 28rem;
     object-fit: contain;
+
+    @include media-tablet {
+      height: 25rem;
+    }
   }
 
   &__status {

@@ -23,6 +23,11 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1.7rem;
+    align-items: center;
+
+    @include media-tablet {
+      align-items: flex-start;
+    }
 
     @include media-desktop {
       margin: 0 1.5rem;
