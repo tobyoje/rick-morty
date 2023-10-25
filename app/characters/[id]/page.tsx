@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import style from "./page.module.scss";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import Loading from "@/app/components/Loading/Loading";
 
 interface character {
   id: number;
@@ -124,7 +125,11 @@ const SingleCharacter = ({ params: { id } }: Props) => {
   }, [characterId]);
 
   if (!data) {
-    return <p>Loading...</p>;
+    return (
+      <>
+        <Loading />
+      </>
+    );
   }
 
   const handleNext = () => {

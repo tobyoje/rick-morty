@@ -1,8 +1,7 @@
 .main {
   background: var(--black);
-  height: 40rem;
   display: flex;
   justify-content: center;
-  padding: 40rem 0;
   font-size: 8rem;
+  height: 100vh;
 }

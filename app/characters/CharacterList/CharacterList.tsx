@@ -6,6 +6,7 @@ import Pagination from "../Pagination/Pagination";
 import { useSearchParams } from "next/navigation";
 import Search from "../Search/Search";
 import Filter from "../Filter/Filter";
+import Loading from "@/app/components/Loading/Loading";
 
 interface singleCharacter {
   id: number;
@@ -81,18 +82,21 @@ const CharactersList = () => {
   }, [currentPage, nameFilter, filter]);
 
   if (!data || !info) {
-    return <p>Loading...</p>;
+    return (
+      <>
+        <Loading />
+      </>
+    );
   }
 
   return (
     <>
-      <Search
-        setCurrentPage={setCurrentPage}
-        nameFilter={nameFilter}
-        setNameFilter={setNameFilter}
-      />
-
       <section className={styles.characters}>
+        <Search
+          setCurrentPage={setCurrentPage}
+          nameFilter={nameFilter}
+          setNameFilter={setNameFilter}
+        />
         <Filter
           setCurrentPage={setCurrentPage}
           filter={filter}

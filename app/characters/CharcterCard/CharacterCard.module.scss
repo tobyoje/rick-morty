@@ -3,6 +3,8 @@
   padding: 1.5rem;
   border-radius: 1.5rem;
   margin: 1rem;
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-in forwards;
 }
 
 .character {
@@ -53,18 +55,23 @@
     margin-bottom: 0.5rem;
   }
 
-&__location{
+  &__location {
     font-size: 1.4rem;
 
-    &--title{
-        font-size: 1.2rem;
-        font-weight: 400;
-        margin-bottom: 0.2rem;
-        color: var(--secondary-text);
-
-
+    &--title {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.2rem;
+      color: var(--secondary-text);
     }
-
+  }
 }
 
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
